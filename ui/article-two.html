@@ -1,4 +1,4 @@
-
+<!-- in this article-two i made  use of style used in article 1 but won't use padding see difference in case of mobiles    -->
 <html>
 
 <head>
@@ -7,10 +7,29 @@
     article-one karthik
 </title>    
  <meta name="viewport" content="width=device-width,initial-scale=1" />   
+ 
+ <style>
+  .container{
+      max-width:600px;
+      margin:0 auto;
+      color: grey;
+      font family:sans-serif;
+      <!-- for the website to view on mobile to get left or right side space for paragraph to look good we use padding  -->
+      padding-left:20px;
+      padding-right:20px;
+      padding-top:60px;
+  }
+ </style>
+ 
 </head>
 
 <body>
-<a href="/">home</a>
+    
+    <div class="container">
+    <div>
+        <a href="/">home</a>
+    </div>
+
  
  <h3>article -2
  date of birth</h3>  
@@ -40,7 +59,7 @@
  </p>
  
  </div>
- 
+ </div>
  
 </body>
 
