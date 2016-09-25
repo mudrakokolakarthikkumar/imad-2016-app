@@ -5,115 +5,7 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles= {
-'article-one' : {
-  title:'article-one',
-  heading: 'ArticleOne',
-  date: '22-06-1996',
-  content: `<p>
-1
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-1
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-1
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-</p>
 
-<p>
-2
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-1
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-</p>
-
-
-<p> 
-3
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-</p> `
-  
-},
-'article-two':{
-    title:'article-two',
-  heading: 'Articletwo',
-  date: '22-06-1996',
-  content: `<p>
-
-2-1
-hai my name is karthik 
-at present i am doing btech 2nd year
-i like exploring new thing over internet
-</p>`
-},
-'article-three':{title:'article-two',
-  heading: 'Articletwo',
-  date: '22-06-1996',
-  content: `<p>
-third paragraph
-</p>`
-}
-};
-
-function createTemplate (data) {
-    var title=data.title;
-    var heading=data.heading;
-    var date=data.date;
-    var content=data.content;
-    
-    var htmlTemplate = `<html>
-
-<head>
- 
- <title>
-   ${title}
-</title>    
-   <meta name="viewport" content="width=device-width,initial-scale=1" />  
-   <link href="/ui/style.css" rel="stylesheet" />
- 
-</head>
-
- 
-<body>
-<div class="container">
-<div>
-    <a href="/">home</a>
-    </div>
-    
-    <!-- i did not used this <hr/> in article-2 and article-3 you can observe you won't get any horizontal in 2,3  -->
-    <hr/>
-    
-    <h3>
-    ${heading}
-    </h3>  
-    
-    <div>
-    ${date}
-    </div>
-
-<div>
-    ${content}
-     </div>
-
-</div> 
-</body>
- 
-</html>
-`;
-    
-    return htmlTemplate;
-}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -125,12 +17,7 @@ app.get('/counter',function(req,res){
     res.send(counter.toString());
 });
 
-app.get('/:articleName', function (req, res) {
-    //areticleNmae==article-one
-    //articles[articleName]=={} content object from article one
-    var articleName=req.params.articleName;
-  res.send(createTemplate(articles[articleName]));
-});
+
 
 
 
